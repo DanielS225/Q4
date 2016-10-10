@@ -44,11 +44,8 @@ public class AppTest
         assertFalse(t1.isFilled());
         
         Triangle t2 = new Triangle(2,4,5);
-        assertEquals(t2.getSide1(),2.0);
-        assertEquals(t2.getSide2(),4.0);
-        assertEquals(t2.getSide3(),5.0);
-        //assertEquals(t2.getArea(),3.7997);
-        assertEquals(t2.getPerimeter(),11.0);
+        t2.setColor("green!");
+        assertEquals("green!",t2.getColor());
         
         Triangle t3 = new Triangle(3,4,5);
         assertEquals(t3.getSide1(),3.0);
@@ -56,6 +53,12 @@ public class AppTest
         assertEquals(t3.getSide3(),5.0);
         assertEquals(t3.getArea(),6.0);
         assertEquals(t3.getPerimeter(),12.0);
+        
+        Triangle t4 = new Triangle(1,2,3,"green",false);
+        t4.setColor("red");
+        assertEquals(t4.isFilled(),false);
+        t4.setFilled(true);
+        assertEquals(t4.isFilled(),true);
         
     }
 }
