@@ -1,5 +1,7 @@
 package Q4.Q4;
 
+import Q4.Q4.TriangleException;
+
 public class Triangle extends GeometricObject {
 	private double side1;
 	private double side2;
@@ -17,11 +19,14 @@ public class Triangle extends GeometricObject {
 	  * @param side2
 	  * @param side3
 	  */
-	public Triangle(double side1, double side2, double side3) {
+	public Triangle(double side1, double side2, double side3) throws TriangleException {
 		super();
-		this.side1 = side1;
-		this.side2 = side2;
-		this.side3 = side3;
+		if ((side1 > 0) && (side2 > 0) && (side3 > 0) && ((side1 + side2) > side3) && 
+				((side2+ side3) > side1) && ((side1 + side3) > side2)) {
+			this.side1 = side1;
+			this.side2 = side2;
+			this.side3 = side3;
+		} else throw new TriangleException(side1, side2, side3);
 	}
 	/** Construct instance with given 3 side lengths and color and filled
 	  * @param side1
